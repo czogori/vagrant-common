@@ -8,8 +8,6 @@ postgresql postgresql-contrib
 sudo -u postgres psql -c "alter user postgres password 'postgres';"
 sudo -u postgres psql -c "CREATE ROLE aj WITH LOGIN PASSWORD 'aj' CREATEDB CREATEROLE;"
 sudo -u postgres psql -c "create database aj with owner aj;"
-
-# apache
 sudo sed -i "s/#listen_addresses = 'localhost'/listen_addresses = '*'/" /etc/postgresql/9.3/main/postgresql.conf
 sudo sed -i "s/peer/md5/" /etc/postgresql/9.3/main/pg_hba.conf
 sudo sed -i "s/127.0.0.1\/32/0.0.0.0\/0/" /etc/postgresql/9.3/main/pg_hba.conf
